@@ -2,7 +2,8 @@
 #include <string>
 #include <map>
 #include <vector>
-#include<algorithm>
+#include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
@@ -88,7 +89,7 @@ int main(){
     string term;
     for(i=0;i<m;i++){
         cin>>type>>term;
-        cout<<"case: "<<i<<": "<<type<<" "<<term<<endl;
+        cout<<"Case "<<i+1<<": "<<type<<" "<<term<<endl;
         switch(type){
         case 1:
             type_one(term, cardpairs);
@@ -144,7 +145,7 @@ bool cmp(const pair<string, int>& a, const pair<string, int>& b) {
 }
 
 void type_thr(string term, vector<CardPair> cardpairs){
-    map<string, int> m;
+    unordered_map<string, int> m;
     for(int i = 0;i<cardpairs.size();i++){
         if(cardpairs[i].card.str.substr(4,6)==term){
             if(m.find(cardpairs[i].card.test_site)!=m.end()){
